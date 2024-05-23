@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(2, 2, 2, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #080808;
+        }
+        input[type="text"], input[type="number"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px 0;
+            border: 1px solid #353535;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #000000;
+        }
+        textarea {
+            resize: vertical;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #020202;
+        }
+        .payment-methods {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        .payment-method {
+            display: flex;
+            align-items: center;
+        }
+        .payment-method input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Thanh Toán</h1>
+        <form action="/submit_payment" method="POST">
+            <div class="form-group">
+                <label for="paymentMethod">Phương thức thanh toán</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="creditCard">Thẻ tín dụng</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bidv">Ngân hàng BIDV</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="accountNumber">Số tài khoản</label>
+                <input type="number" id="accountNumber" name="accountNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="cardNumber">Số thẻ</label>
+                <input type="number" id="cardNumber" name="cardNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="amount">Số tiền</label>
+                <input type="number" id="amount" name="amount" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Nội dung</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+            </div>
+            <input type="submit" value="Submit Payment">
+        </form>
+    </div>
+</body>
+</html>
